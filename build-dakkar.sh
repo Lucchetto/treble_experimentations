@@ -400,8 +400,24 @@ function clone_or_checkout2() {
     fi
 }
 
+function clone_or_checkout3() {
+    local dir="$1"
+    local repo="$2"
+
+    if [[ -d "$dir" ]];then
+        (
+            cd "$dir"
+            git fetch
+            git reset --hard
+            git checkout origin/"$localManifestBranch"
+        )
+    else
+        git clone https://github.com/Lucchetto/"$repo" "$dir" -b "$localManifestBranch"
+    fi
+}
+
 function init_local_manifest() {
-    clone_or_checkout2 .repo/local_manifests treble_manifest
+    clone_or_checkout3 .repo/local_manifests treble_manifest
 }
 
 function init_patches() {
