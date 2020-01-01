@@ -422,7 +422,7 @@ function init_local_manifest() {
 
 function init_patches() {
     if [[ -n "$treble_generate" ]]; then
-        clone_or_checkout2 patches treble_patches
+        clone_or_checkout3 patches treble_patches
 
         # We don't want to replace from AOSP since we'll be applying
         # patches by hand
