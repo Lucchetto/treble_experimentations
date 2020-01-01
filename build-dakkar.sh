@@ -79,6 +79,7 @@ ROM types:
   omni10
   aosip9
   aosip10
+  revengeos10
 
 Variants are dash-joined combinations of (in order):
 * processor type
@@ -281,6 +282,13 @@ function get_rom_type() {
                 mainbranch="ten"
                 localManifestBranch="android-10.0"
                 treble_generate="aosip"
+                extra_make_options="WITHOUT_CHECK_API=true"
+		;;
+            revengeos10)
+                mainrepo="https://github.com/RevengeOS/android_manifest"
+                mainbranch="r10.0"
+                localManifestBranch="android-10.0"
+                treble_generate="revengeos"
                 extra_make_options="WITHOUT_CHECK_API=true"
 	esac
         shift
